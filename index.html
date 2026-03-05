@@ -289,16 +289,44 @@
   .brand-logo-item:hover { opacity: 0.7; transform: scale(1.05); }
   .brand-logo-item svg { height: 28px; width: auto; }
 
-  /* ── TRUST ── */
-  .trust-section { padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 0 auto; align-items: center; }
-  .trust-quote { position: relative; padding-left: 2rem; border-left: 4px solid var(--brand-blue); }
-  .trust-quote blockquote { font-family: var(--font-display); font-size: 1.45rem; line-height: 1.45; margin-bottom: 1.5rem; text-transform: uppercase; }
-  .trust-quote cite { font-style: normal; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); }
-  .trust-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .stat-card { background: white; border-radius: 16px; padding: 2rem; border: 1px solid var(--border-subtle); transition: transform 0.3s; }
-  .stat-card:hover { transform: translateY(-3px); }
-  .stat-card .number { font-family: var(--font-display); font-size: 2.2rem; color: var(--brand-blue); margin-bottom: 0.25rem; }
-  .stat-card .label { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; }
+  /* ── OUR STORY ── */
+  .our-story { padding: 7rem 4rem; text-align: center; }
+  .story-inner { max-width: 1100px; margin: 0 auto; }
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; text-align: left; margin-top: 3rem;
+  }
+  .story-text p {
+    font-size: 0.95rem; line-height: 1.75; color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .story-text strong { color: var(--text-primary); font-weight: 700; }
+  .story-details { display: flex; flex-direction: column; gap: 1.5rem; }
+  .story-card {
+    background: white; border-radius: 16px; padding: 1.75rem;
+    border: 1px solid var(--border-subtle); transition: all 0.3s;
+  }
+  .story-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+  .story-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .story-card h4 {
+    font-family: var(--font-display); font-size: 0.95rem;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .story-card p { font-size: 0.82rem; line-height: 1.6; color: var(--text-secondary); }
+  .story-quote {
+    margin-top: 3.5rem; padding: 2.5rem; text-align: center;
+    background: var(--brand-blue-subtle); border-radius: 20px;
+  }
+  .story-quote blockquote {
+    font-family: var(--font-display); font-size: 1.25rem;
+    line-height: 1.5; text-transform: uppercase;
+    max-width: 700px; margin: 0 auto 1rem;
+    color: var(--brand-blue-dark);
+  }
+  .story-quote cite {
+    font-style: normal; font-size: 0.82rem;
+    font-weight: 600; color: var(--text-secondary);
+  }
 
   /* ── CTA ── */
   .cta-section { padding: 6rem 4rem; text-align: center; }
@@ -351,7 +379,8 @@
     .step-connector { display: none; }
     .brands { padding: 3rem 1.5rem; }
     .brand-logos { gap: 2rem; }
-    .trust-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+    .our-story { padding: 4rem 1.5rem; }
+    .story-grid { grid-template-columns: 1fr; }
     .cta-section { padding: 3rem 1.5rem; }
     .cta-box { padding: 3rem 2rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
@@ -368,7 +397,7 @@
   <div class="nav-links">
     <a href="#how-it-works">How It Works</a>
     <a href="#features">Features</a>
-    <a href="#trust">About</a>
+    <a href="#trust">Our Story</a>
     <a href="https://www.amazon.com/dp/B0CP19ZK42/" class="nav-cta" target="_blank">Buy on Amazon</a>
   </div>
   <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
@@ -380,7 +409,7 @@
   <button class="close-btn" onclick="this.parentElement.classList.remove('open')">&times;</button>
   <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
   <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
-  <a href="#trust" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="#trust" onclick="this.parentElement.classList.remove('open')">Our Story</a>
   <a href="https://www.amazon.com/dp/B0CP19ZK42/" target="_blank">Buy on Amazon</a>
 </div>
 
@@ -546,28 +575,45 @@
   <p style="margin-top: 2rem; font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">+ fits most 2.5–3 oz roll-on bottles from virtually any brand</p>
 </section>
 
-<!-- TRUST / ABOUT -->
-<section class="trust-section" id="trust">
-  <div class="trust-quote reveal">
-    <blockquote>"After 25 years of treating patients, I knew there had to be a better way for people to apply pain relief at home."</blockquote>
-    <cite>— Dr. Ryan Anthony Swier, DC — Inventor of That BARR<br><span style="font-size: 0.78rem; color: #888;">Practicing in St. Charles, Missouri &middot; Logan University Graduate</span></cite>
-  </div>
-  <div class="trust-stats">
-    <div class="stat-card reveal">
-      <div class="number">25+</div>
-      <div class="label">Years of chiropractic experience behind the design</div>
+<!-- OUR STORY -->
+<section class="our-story" id="trust">
+  <div class="story-inner">
+    <div class="section-label reveal">Our Story</div>
+    <h2 class="section-title reveal">Born from decades of patient care</h2>
+
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <p>The inventor of That BARR is <strong>Dr. Ryan Anthony Swier</strong>, a licensed chiropractic physician who has been running a successful practice in St. Charles, Missouri for over 25 years. Dr. Swier comes from a family of chiropractors spanning four generations — including his uncle, great uncle, great grandfather, and several cousins.</p>
+
+        <p>Dr. Swier earned his Bachelor of Science in Human Biology and his Doctor of Chiropractic degree from Logan College of Chiropractic (now Logan University). He takes pride in giving exceptional care and spending time with his patients while giving them relief from their symptoms.</p>
+
+        <p>The idea for That BARR developed after decades of selling a popular pain relief product in his office that came in gel, roll-on, and spray options. The roll-on was the best seller because many patients didn't like the feeling of residual product on their hands. However, it was limited to certain areas of the body based on the patient's reach.</p>
+
+        <p>After extensive research, Dr. Swier found that no mass-produced product existed on the market to solve this problem — and That BARR was born.</p>
+      </div>
+
+      <div class="story-details">
+        <div class="story-card reveal">
+          <div class="story-card-icon">🏗️</div>
+          <h4>Engineered With Purpose</h4>
+          <p>Designed to fit most 2.5–3 oz roll-on bottles with a tapered canister. The ergonomic curve minimizes stress on arm joints, and the I-beam design provides strength and durability with minimal flex.</p>
+        </div>
+        <div class="story-card reveal">
+          <div class="story-card-icon">👨‍👩‍👦‍👦</div>
+          <h4>4 Generations of Chiropractic</h4>
+          <p>Dr. Swier's family has been in chiropractic care for four generations. That heritage of hands-on healing directly influenced how That BARR was designed — with the patient's comfort and independence in mind.</p>
+        </div>
+        <div class="story-card reveal">
+          <div class="story-card-icon">🇺🇸</div>
+          <h4>Proudly Made in the USA</h4>
+          <p>That BARR is a US patented product, manufactured domestically with the highest quality polypropylene materials. Built to be nearly indestructible under normal use.</p>
+        </div>
+      </div>
     </div>
-    <div class="stat-card reveal">
-      <div class="number">18"</div>
-      <div class="label">Total reach length for full-body accessibility</div>
-    </div>
-    <div class="stat-card reveal">
-      <div class="number">1</div>
-      <div class="label">Single-piece construction. No parts to lose or break</div>
-    </div>
-    <div class="stat-card reveal">
-      <div class="number">∞</div>
-      <div class="label">Nearly indestructible polypropylene build</div>
+
+    <div class="story-quote reveal">
+      <blockquote>"The challenge right now is getting it in front of people, because once they see how it's used they automatically want one."</blockquote>
+      <cite>— Dr. Ryan Anthony Swier, DC</cite>
     </div>
   </div>
 </section>
