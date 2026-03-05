@@ -52,8 +52,9 @@
   }
   nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 2px 30px rgba(0,0,0,0.06); }
 
-  .nav-logo { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo-img { height: 46px; width: auto; object-fit: contain; }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 0.35rem; }
+  .nav-logo-that { font-family: var(--font-display); font-size: 1.3rem; color: var(--brand-blue-dark); letter-spacing: 0.02em; }
+  .nav-logo-barr { font-family: var(--font-display); font-size: 1.3rem; color: var(--accent-warm); letter-spacing: 0.02em; }
 
   .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-links a {
@@ -158,17 +159,59 @@
   /* ── HERO VISUAL ── */
   .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; animation: fadeIn 1s ease 0.4s both; }
   .hero-logo-frame {
-    width: 480px; max-width: 100%;
+    width: 560px; max-width: 100%;
     display: flex; justify-content: center; align-items: center;
     position: relative;
-    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.1));
+    padding: 2rem;
   }
   .hero-logo-frame img {
     width: 100%; height: auto;
     object-fit: contain;
+    filter: drop-shadow(0 12px 40px rgba(43,93,174,0.15));
     transition: transform 0.5s ease;
+    position: relative; z-index: 2;
   }
   .hero-logo-frame:hover img { transform: scale(1.03); }
+
+  /* Floating info badges */
+  .hero-float {
+    position: absolute; z-index: 3;
+    background: white; border-radius: 12px;
+    padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    font-size: 0.72rem; font-weight: 700; color: var(--text-primary);
+    white-space: nowrap;
+    animation: float 4s ease-in-out infinite;
+  }
+  .hero-float span { font-size: 1rem; }
+  .hero-float-1 { top: -10px; right: -10px; animation-delay: 0s; }
+  .hero-float-2 { bottom: 20px; left: -20px; animation-delay: 1.2s; }
+  .hero-float-3 { bottom: -10px; right: 40px; animation-delay: 2.4s; }
+
+  /* Background decorative shapes */
+  .hero-shape { position: absolute; z-index: 1; pointer-events: none; }
+  .hero-shape-circle {
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(43,93,174,0.06), rgba(232,135,45,0.04));
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hero-shape-ring {
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    border: 2px dashed rgba(43,93,174,0.08);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 60s linear infinite;
+  }
+  .hero-shape-dots {
+    width: 80px; height: 80px;
+    top: 10px; left: 10px;
+    background-image: radial-gradient(rgba(43,93,174,0.15) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+  @keyframes spin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
 
   /* ── PROOF BAR ── */
   .proof-bar {
@@ -295,7 +338,11 @@
     .hero p { max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; flex-wrap: wrap; }
     .hero-visual { margin-top: 3rem; }
-    .hero-logo-frame { width: 320px; }
+    .hero-logo-frame { width: 340px; }
+    .hero-float { display: none; }
+    .hero-shape-ring { width: 300px; height: 300px; }
+    .hero-shape-circle { width: 240px; height: 240px; }
+    .hero-shape-dots { display: none; }
     .proof-bar { flex-wrap: wrap; gap: 1.25rem; padding: 2rem 1.5rem; justify-content: center; }
     .features { padding: 4rem 1.5rem; }
     .features-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
@@ -316,7 +363,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-    <img src="thatbarr-logo.jpeg" alt="That BARR" class="nav-logo-img">
+    <span class="nav-logo-that">THAT</span><span class="nav-logo-barr">BARR</span>
   </a>
   <div class="nav-links">
     <a href="#how-it-works">How It Works</a>
@@ -353,7 +400,21 @@
   </div>
   <div class="hero-visual">
     <div class="hero-logo-frame">
-      <img src="thatbarr-logo.jpeg" alt="That BARR - The Original Back Assist Roller Reacher">
+      <img src="thatbarr-logo.png" alt="That BARR - The Original Back Assist Roller Reacher">
+      <!-- Floating decorative elements -->
+      <div class="hero-float hero-float-1">
+        <span>🇺🇸</span> Made in USA
+      </div>
+      <div class="hero-float hero-float-2">
+        <span>💪</span> Indestructible
+      </div>
+      <div class="hero-float hero-float-3">
+        <span>⚕️</span> Doctor Designed
+      </div>
+      <!-- Background decorative shapes -->
+      <div class="hero-shape hero-shape-circle"></div>
+      <div class="hero-shape hero-shape-ring"></div>
+      <div class="hero-shape hero-shape-dots"></div>
     </div>
   </div>
 </section>
@@ -457,53 +518,29 @@
 <section class="brands reveal" id="brands">
   <div class="section-label">Works With Your Favorite Brands</div>
   <div class="brand-logos">
-    <!-- BIOFREEZE -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 150 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">BIOFREEZE</text>
-      </svg>
+      <svg viewBox="0 0 200 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">BIOFREEZE</text></svg>
     </div>
-    <!-- ICY HOT -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 110 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="1">ICY HOT</text>
-      </svg>
+      <svg viewBox="0 0 150 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">ICY HOT</text></svg>
     </div>
-    <!-- ASPERCREME -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 170 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">ASPERCREME</text>
-      </svg>
+      <svg viewBox="0 0 220 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">ASPERCREME</text></svg>
     </div>
-    <!-- SALONPAS -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">SALONPAS</text>
-      </svg>
+      <svg viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">SALONPAS</text></svg>
     </div>
-    <!-- STOPAIN -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 110 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">STOPAIN</text>
-      </svg>
+      <svg viewBox="0 0 150 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">STOPAIN</text></svg>
     </div>
-    <!-- BENGAY -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 110 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">BENGAY</text>
-      </svg>
+      <svg viewBox="0 0 140 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">BENGAY</text></svg>
     </div>
-    <!-- CRYODERM -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">CRYODERM</text>
-      </svg>
+      <svg viewBox="0 0 190 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">CRYODERM</text></svg>
     </div>
-    <!-- EQUATE -->
     <div class="brand-logo-item">
-      <svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="24" font-family="'Archivo Black', Arial Black, sans-serif" font-size="22" font-weight="900" fill="#1A1714" letter-spacing="0.5">EQUATE</text>
-      </svg>
+      <svg viewBox="0 0 140 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="25" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#1A1714">EQUATE</text></svg>
     </div>
   </div>
   <p style="margin-top: 2rem; font-size: 0.82rem; color: var(--text-secondary); font-weight: 500;">+ fits most 2.5–3 oz roll-on bottles from virtually any brand</p>
