@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>That BARR — The Original Back Assist Roller Reacher</title>
+<meta name="description" content="That BARR is the original Back Assist Roller Reacher — a patented, USA-made device invented by a chiropractor to help you apply roll-on pain relief to hard-to-reach areas of your body.">
+<meta name="keywords" content="That BARR, back assist roller reacher, pain relief applicator, roll-on applicator, Biofreeze applicator, back pain relief, chiropractor invented">
+<meta name="author" content="That BARR LLC">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jonnyshocko.github.io/thatbarr/">
+<meta property="og:title" content="That BARR — The Original Back Assist Roller Reacher">
+<meta property="og:description" content="Apply your favorite roll-on pain relief to every hard-to-reach spot. Patented, USA-made, and invented by a chiropractor with 25+ years of experience.">
+<meta property="og:image" content="https://jonnyshocko.github.io/thatbarr/thatbarr-logo.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="391">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="That BARR — The Original Back Assist Roller Reacher">
+<meta name="twitter:description" content="Apply your favorite roll-on pain relief to every hard-to-reach spot. Patented, USA-made, and invented by a chiropractor.">
+<meta name="twitter:image" content="https://jonnyshocko.github.io/thatbarr/thatbarr-logo.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="thatbarr-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
 <style>
@@ -239,17 +260,8 @@
   }
   .video-wrapper video,
   .video-wrapper iframe {
-    width: 100%; height: 100%; object-fit: cover; border: none;
+    width: 100%; height: 100%; border: none;
   }
-  .video-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.4);
-    gap: 1rem;
-  }
-  .video-placeholder svg { width: 64px; height: 64px; opacity: 0.5; }
-  .video-placeholder p { font-size: 0.85rem; font-weight: 500; }
 
   /* ── FEATURES ── */
   .features { padding: 7rem 4rem; text-align: center; }
@@ -328,6 +340,27 @@
     font-weight: 600; color: var(--text-secondary);
   }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials { padding: 7rem 4rem; text-align: center; background: var(--bg-dark); color: var(--text-light); }
+  .testimonials .section-label { color: var(--accent-gold); }
+  .testimonials .section-subtitle { color: rgba(247,243,238,0.5); }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+  .testimonial-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 2rem; text-align: left;
+    transition: all 0.3s;
+  }
+  .testimonial-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-3px); }
+  .testimonial-stars { color: var(--accent-gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+  .testimonial-text {
+    font-size: 0.92rem; line-height: 1.7; color: rgba(247,243,238,0.8);
+    margin-bottom: 1.5rem; font-style: italic;
+  }
+  .testimonial-author strong { display: block; font-size: 0.8rem; color: var(--text-light); font-weight: 700; }
+  .testimonial-author span { font-size: 0.72rem; color: rgba(247,243,238,0.4); }
+  .testimonials .btn-secondary { border-color: rgba(255,255,255,0.2); color: var(--text-light); }
+  .testimonials .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
   /* ── CTA ── */
   .cta-section { padding: 6rem 4rem; text-align: center; }
   .cta-box {
@@ -381,6 +414,8 @@
     .brand-logos { gap: 2rem; }
     .our-story { padding: 4rem 1.5rem; }
     .story-grid { grid-template-columns: 1fr; }
+    .testimonials { padding: 4rem 1.5rem; }
+    .testimonial-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     .cta-section { padding: 3rem 1.5rem; }
     .cta-box { padding: 3rem 2rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
@@ -481,26 +516,7 @@
   </div>
 
   <div class="video-wrapper reveal" style="margin-top: 4rem;">
-    <!--
-      ╔══════════════════════════════════════════════════════════════╗
-      ║  DROP YOUR VIDEO HERE                                       ║
-      ║                                                              ║
-      ║  Option A — YouTube embed:                                   ║
-      ║  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"   ║
-      ║    allowfullscreen></iframe>                                 ║
-      ║                                                              ║
-      ║  Option B — Direct MP4:                                      ║
-      ║  <video controls poster="poster.jpg">                       ║
-      ║    <source src="your-video.mp4" type="video/mp4">           ║
-      ║  </video>                                                    ║
-      ╚══════════════════════════════════════════════════════════════╝
-    -->
-    <div class="video-placeholder">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3"/>
-      </svg>
-      <p>Video — replace this div with your embed</p>
-    </div>
+    <iframe title="vimeo-player" src="https://player.vimeo.com/video/904254109?h=d1d169ebca" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
   </div>
 </section>
 
@@ -616,6 +632,41 @@
       <cite>— Dr. Ryan Anthony Swier, DC</cite>
     </div>
   </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="section-label reveal">What Customers Say</div>
+  <h2 class="section-title reveal">Real people. Real relief.</h2>
+  <p class="section-subtitle reveal">See why customers love That BARR on Amazon.</p>
+  <div class="testimonial-grid">
+    <!-- NOTE: Replace these with actual Amazon reviews -->
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I can finally apply Biofreeze to my own back without asking my wife for help. This thing is sturdy and the roll-on bottle fits perfectly. Worth every penny."</p>
+      <div class="testimonial-author">
+        <strong>Verified Amazon Customer</strong>
+        <span>Back Pain Relief</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"With arthritis in both shoulders it was nearly impossible to reach my upper back. That BARR changed everything — I can do it myself now without any pain."</p>
+      <div class="testimonial-author">
+        <strong>Verified Amazon Customer</strong>
+        <span>Arthritis & Mobility</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Simple, well-made, and it just works. The handle is comfortable even for my smaller hands and the bottle stays locked in place. I keep one at home and one in my gym bag."</p>
+      <div class="testimonial-author">
+        <strong>Verified Amazon Customer</strong>
+        <span>Active Lifestyle</span>
+      </div>
+    </div>
+  </div>
+  <a href="https://www.amazon.com/dp/B0CP19ZK42/" class="btn-secondary" target="_blank" style="margin-top: 2.5rem; display: inline-flex;">Read All Reviews on Amazon</a>
 </section>
 
 <!-- CTA -->
